@@ -1,0 +1,11 @@
+name = "karatshod-worker"
+main = "worker.js"
+compatibility_date = "2025-08-01"
+
+# Secrets را داخل Cloudflare تنظیم کن، نه داخل GitHub:
+# MASTER_BOT_TOKEN
+# STORE_BOT_TOKEN
+# CUSTOMER_BOT_TOKEN
+# MASTER_CHAT_ID
+# API_BASE=https://my.karatshod.click
+# MASTER_SECRET
