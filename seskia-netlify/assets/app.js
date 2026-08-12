@@ -1,7 +1,10 @@
-const DOWNLOAD_URL = "http://143.14.59.50/seskia.apk";
+const DOWNLOAD_URL = "https://seskia.online/download.php";
 const shell = document.querySelector(".site-shell");
 const themeButtons = [...document.querySelectorAll("[data-select-theme]")];
 const preferredTheme = new URLSearchParams(window.location.search).get("theme");
+const downloadButton = document.querySelector(".download-button");
+
+downloadButton.href = DOWNLOAD_URL;
 
 function setTheme(theme) {
   if (!["violet", "night", "sunset"].includes(theme)) return;
@@ -19,13 +22,12 @@ function setTheme(theme) {
 if (preferredTheme) setTheme(preferredTheme);
 themeButtons.forEach((button) => button.addEventListener("click", () => setTheme(button.dataset.selectTheme)));
 
-document.querySelector(".download-button").addEventListener("click", (event) => {
-  const button = event.currentTarget;
-  const label = button.querySelector("b");
-  button.classList.add("downloading");
+downloadButton.addEventListener("click", () => {
+  const label = downloadButton.querySelector("b");
+  downloadButton.classList.add("downloading");
   label.textContent = "در حال انتقال...";
   window.setTimeout(() => {
-    button.classList.remove("downloading");
+    downloadButton.classList.remove("downloading");
     label.textContent = "دانلود مستقیم اپلیکیشن";
   }, 2400);
 });
